@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Geo Location</title>
+        <script>
+			function init() {
+				if(navigator && navigator.geolocation){
+					navigator.geolocation.getCurrentPosition(myFunction);
+				}
+			}
+			function myFunction(position) {
+				var demo = document.getElementById("demo");
+				demo.innerHTML = "Latitude: " + position.coords.latitude
+								+ "<br>Longitude: " + position.coords.longitude
+								+ ((position.coords.altitude===null)?"":"<br>Altitude: " + position.coords.altitude);
+
+			}
+        </script>
+    </head>
+    <body
+		onload="javascript:init();"
+		onkeypress="javascript:init();"
+		onclick="javascript:init();"
+		ontouchmove="javascript:init();"
+    	ontouchend="javascript:init();">
+	        <div id="demo"></div>
+    </body>
+</html>
